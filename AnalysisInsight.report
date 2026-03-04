@@ -1,0 +1,60 @@
+---SUMMARY 
+This analysis examines Airbnb occupancy patterns across listings, hosts, and neighbourhoods in New York city, New York.
+ Using SQL, I cleaned and modeled the dataset into a fact table and calculated performance metrics such as occupancy rate,
+host efficiency, neighbourhood demand, and seasonality. The results show strong weekend demand, clear seasonal peaks, and 
+significant differences between neighbourhoods. Host behavior varies widely, with power hosts outperforming individual hosts.
+ The analysis also identifies high‑demand and low‑demand listings through clustering. These insights can support pricing strategy,
+  host optimization, and neighbourhood investment decisions.
+
+ ---DATA PREPERATION AND MODELING
+ The raw dataset included listings, calendar availability, and host information. I cleaned the calendar table by converting 
+ availability into a binary is_booked field and standardized date formats. I joined listings and host metadata to create a 
+ unified fact table (fact_revenue) containing nightly availability, listing attributes, and neighbourhood information.
+  This table served as the foundation for all analysis.
+
+--- KEY FINDINGS
+
+ -Market Demand
+Occupancy is the primary performance metric in this dataset.
+Demand varies significantly by month, with clear seasonal peaks and dips.
+weekend occupancy is generally higher than weekday occupancy, indicating strong leisure travel patterns.
+
+-Neighbourhood Performance
+Some neighbourhoods consistently outperform the city average.
+High‑demand neighbourhoods show strong occupancy even in off‑season months.
+Low‑demand neighbourhoods show both low occupancy and high variability, suggesting pricing or quality issues.
+
+-Host Behavior
+A small number of “power hosts” control a large share of listings.
+These hosts tend to have higher occupancy due to experience and optimized operations.
+Underperforming hosts often have only one listing and lower-than-average occupancy.
+
+-Listing Performance
+Listings can be grouped into high‑demand, mid‑demand, and low‑demand clusters.
+High‑demand listings maintain >75% occupancy across the dataset.
+Low‑demand listings often fall below 40% occupancy and may be overpriced or poorly managed.
+
+-Seasonality
+Monthly occupancy patterns reveal predictable demand cycles.
+A 3‑month moving average smooths noise and highlights long-term trends.
+Forecasting based on historical seasonality suggests similar patterns in future months.
+
+-Clustering Insights
+Outperformers: listings that exceed their neighbourhood average by >10%.
+Underperformers: listings that fall below neighbourhood average by >10%.
+Balanced listings: perform roughly in line with their area.
+
+
+
+--- RECOMENDATIONS
+High‑demand neighbourhoods can support higher pricing.
+Underperforming hosts may need listing improvements or pricing adjustments.
+Weekend demand suggests weekend‑specific pricing strategies.
+Low‑demand listings may be overpriced or poorly managed.
+
+
+---Limitations & Next Steps
+price data / revenue metrics unavailable
+Future work could include scraping price data
+Could add machine learning clustering
+Could build a dashboard
